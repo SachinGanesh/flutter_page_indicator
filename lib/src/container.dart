@@ -11,6 +11,7 @@ enum IndicatorAlign {
 
 class PageIndicatorContainer extends StatefulWidget {
   final Widget child;
+  final Widget overlay;
 
   final int length;
 
@@ -29,6 +30,7 @@ class PageIndicatorContainer extends StatefulWidget {
   const PageIndicatorContainer({
     Key key,
     @required this.child,
+    @required this.overlay,
     @required this.length,
     this.padding = const EdgeInsets.only(bottom: 10.0, top: 10.0),
     this.align = IndicatorAlign.bottom,
@@ -102,6 +104,7 @@ class PageContainerState extends State<PageIndicatorContainer> {
           child: pageView,
           onNotification: _onScroll,
         ),
+        widget.overlay,
         indicator,
       ],
     );
